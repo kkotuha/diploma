@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Web</title>
+  <!-- link to file -->
+  <link rel="stylesheet" href="/style.css"/>
+</head>
+
+<body>
+  <center>
+
+    <h1>Дякуємо за покупку!</h1>
+
+<br>
+  </p>
+  <h2>Ваш квиток:</h2>
+
+  
+    <p id="qr"></p>
+
+    Зробіть скріншот
+  </p>
+  Aбо
+  </p>
+  Вкажіть ваш email щоб ми змогли надіслати вам квиток
+  </p>
+
+
+    <input type="text" id="email"  value="email">
+    </p>
+  <button id="send" >Надіслати</button>
+  <p id="message">Квиток надісланий</p>
+  <script>
+    document.getElementById('send').addEventListener('click', async () => {
+      const email = document.querySelector('#email').value;
+      const qr1 = 'Public transport is cool!';
+      const res = await fetch(`/api/email?email=${email}&code=${qr1}`);
+      const trip = await res.json();
+      //document.querySelector('#message').style.display = 'block';
+      console.log(trip);
+     
+    });
+  </script>
+ </p>
+  </center>
+
+</body>
+<footer>
+  <center>
+  <table>
+<tr>
+  <th>
+    <a href="/">  
+      <img src="/search-icon.png" width="70" height="70">
+      </a>
+    </th>
+    <th>
+    <a href="/zup/">
+    <img src="/bus-stop-icon.png " width="70" height="70">
+    </a>
+   </th>
+  <th>
+  <a href="/marsh/">
+  <img src="/bus-symbol-icon.png" width="70" height="70">
+  </a>
+  </th>
+ </tr>
+  <tr>
+    <td>Побудувати </p>маршрут</td>
+    <td>Зупинки</td>
+    <td>Маршрут</td>
+  </tr>
+ 
+</table>
+</center>
+</footer>
+<script src="./kv.js" type="module"></script>
+</html>
